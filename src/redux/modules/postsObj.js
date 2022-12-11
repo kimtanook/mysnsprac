@@ -1,5 +1,5 @@
 // src/redux/modules/counter.js
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from "@reduxjs/toolkit";
 
 // Initial State
 const initialState = {
@@ -7,7 +7,7 @@ const initialState = {
 };
 // Reducer
 const postsObj = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState,
   reducers: {
     getPosts: (state, action) => {

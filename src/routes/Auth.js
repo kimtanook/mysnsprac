@@ -1,12 +1,11 @@
-import React from 'react';
-import { authService } from '../firebase.js';
+import React from "react";
+import {authService} from "../firebase.js";
 import {
   GoogleAuthProvider,
   signInWithPopup,
   GithubAuthProvider,
-} from 'firebase/auth';
-import AuthForm from '../components/AuthForm.js';
-import '../css/style.css';
+} from "firebase/auth";
+import AuthForm from "../components/AuthForm.js";
 
 const Auth = () => {
   const onGoogleLogIn = async () => {

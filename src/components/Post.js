@@ -1,15 +1,14 @@
-import React from 'react';
-import { dbService, storageService } from '../firebase.js';
-import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { deleteObject, ref } from 'firebase/storage';
-import { useState } from 'react';
-import '../css/style.css';
+import React from "react";
+import {dbService, storageService} from "../firebase.js";
+import {doc, updateDoc, deleteDoc} from "firebase/firestore";
+import {deleteObject, ref} from "firebase/storage";
+import {useState} from "react";
 
-const Post = ({ postObj, isOwner }) => {
+const Post = ({postObj, isOwner}) => {
   const [editing, setEditing] = useState(false);
   const [newPost, setNewPost] = useState(postObj.text);
   const onDeleteClick = async () => {
-    const ok = window.confirm('정말 삭제하시겠습니끼?');
+    const ok = window.confirm("정말 삭제하시겠습니끼?");
     if (ok) {
       try {
         if (postObj.attachmentUrl) {
@@ -92,9 +91,9 @@ const Post = ({ postObj, isOwner }) => {
             )}
             <div className="post-date">
               {new Date(postObj.createAt + 9 * 60 * 60 * 1000).toLocaleString(
-                'ko-KR',
+                "ko-KR",
                 {
-                  timeZone: 'UTC',
+                  timeZone: "UTC",
                 }
               )}
             </div>

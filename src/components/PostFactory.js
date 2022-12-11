@@ -1,30 +1,29 @@
-import React, { useState, useRef } from 'react';
-import { dbService, storageService, authService } from '../firebase';
-import { ref, getDownloadURL, uploadString } from 'firebase/storage';
-import { addDoc, collection } from 'firebase/firestore';
-import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-import '../css/style.css';
-import { useSelector } from 'react-redux';
+import React, {useState, useRef} from "react";
+import {dbService, storageService, authService} from "../firebase";
+import {ref, getDownloadURL, uploadString} from "firebase/storage";
+import {addDoc, collection} from "firebase/firestore";
+import {v4 as uuidv4} from "uuid";
+import {useSelector} from "react-redux";
 
 const PostFactory = () => {
   const globalUser = useSelector((state) => state.userObj.users);
 
-  const [post, setPost] = useState('');
-  const [attachment, setAttachment] = useState('');
+  const [post, setPost] = useState("");
+  const [attachment, setAttachment] = useState("");
   const [toggle, setToggle] = useState(false);
 
   const toggleEditing = () => setToggle((prev) => !prev);
 
   const onSubmit = async (event) => {
-    let attachmentUrl = '';
+    let attachmentUrl = "";
     event.preventDefault();
-    if (attachment !== '') {
+    if (attachment !== "") {
       const fileRef = ref(storageService, `${globalUser.uid}/${uuidv4()}`);
-      const response = await uploadString(fileRef, attachment, 'data_url');
+      const response = await uploadString(fileRef, attachment, "data_url");
       attachmentUrl = await getDownloadURL(response.ref);
     }
     try {
-      await addDoc(collection(dbService, 'post'), {
+      await addDoc(collection(dbService, "post"), {
         createAt: Date.now(),
         creatorId: globalUser.uid,
         displayName: authService.currentUser.displayName,
@@ -32,7 +31,7 @@ const PostFactory = () => {
         text: post,
         attachmentUrl,
       });
-      setPost('');
+      setPost("");
       onClearAttachment();
     } catch (error) {
       console.log(error);
@@ -41,26 +40,26 @@ const PostFactory = () => {
   const fileInput = useRef();
   const onClearAttachment = () => {
     fileInput.current.value = null;
-    setAttachment('');
-    setPost('');
+    setAttachment("");
+    setPost("");
   };
 
   const onChange = (event) => {
     const {
-      target: { value },
+      target: {value},
     } = event;
     setPost(value);
   };
   const onFileChange = (e) => {
     const {
-      target: { files },
+      target: {files},
     } = e;
     const theFile = files[0];
     const reader = new FileReader();
     reader.readAsDataURL(theFile);
     reader.onloadend = (finishedEvent) => {
       const {
-        currentTarget: { result },
+        currentTarget: {result},
       } = finishedEvent;
       setAttachment(result);
     };

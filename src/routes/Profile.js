@@ -1,9 +1,7 @@
 import React, {useRef, useState} from "react";
-// import { useNavigate } from 'react-router-dom';
 import {authService, storageService} from "../firebase";
 import {signOut, updateProfile} from "firebase/auth";
 import {getDownloadURL, ref, uploadString} from "firebase/storage";
-import "../css/style.css";
 import {useSelector} from "react-redux";
 import Post from "../components/Post";
 

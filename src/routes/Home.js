@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
-import Post from '../components/Post';
-import { dbService } from '../firebase.js';
-import { collection, orderBy, query, onSnapshot } from 'firebase/firestore';
-import PostFactory from '../components/PostFactory';
-import '../css/style.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { postActions } from '../redux/modules/postsObj';
+import React, {useEffect} from "react";
+import Post from "../components/Post";
+import {dbService} from "../firebase.js";
+import {collection, orderBy, query, onSnapshot} from "firebase/firestore";
+import PostFactory from "../components/PostFactory";
+import {useDispatch, useSelector} from "react-redux";
+import {postActions} from "../redux/modules/postsObj";
 
 const Home = () => {
   const globalUser = useSelector((state) => state.userObj.users);
@@ -13,7 +12,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const q = query(collection(dbService, 'post'), orderBy('createAt', 'desc'));
+    const q = query(collection(dbService, "post"), orderBy("createAt", "desc"));
     onSnapshot(q, (querySnapshot) => {
       const postsArr = querySnapshot.docs.map((doc) => ({
         id: doc.id,
