@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mysnsprac/static/css/main.9e752b7d.css",
+    "main.js": "/mysnsprac/static/js/main.ed3a4aaa.js",
+    "index.html": "/mysnsprac/index.html",
+    "main.9e752b7d.css.map": "/mysnsprac/static/css/main.9e752b7d.css.map",
+    "main.ed3a4aaa.js.map": "/mysnsprac/static/js/main.ed3a4aaa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e752b7d.css",
+    "static/js/main.ed3a4aaa.js"
+  ]
+}
