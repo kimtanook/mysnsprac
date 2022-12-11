@@ -29,16 +29,13 @@ const Profile = ({refreshUser}) => {
   // 프로필 사진과 닉네임 수정 저장.
   const onSubmit = async (event) => {
     event.preventDefault();
-    await updateProfile(authService.currentUser, {
-      displayName: newDisplayName,
-    });
+    const newCurrentUser = authService.currentUser;
 
-    const imgRef = ref(
-      storageService,
-      `userProfileImgs/${authService.currentUser.uid}`
-    );
-    if (newProfileImg !== "") {
-      const newCurrentUser = authService.currentUser;
+    if (newProfileImg !== newCurrentUser.photoURL) {
+      const imgRef = ref(
+        storageService,
+        `userProfileImgs/${authService.currentUser.uid}`
+      );
       const response = await uploadString(imgRef, newProfileImg, "data_url");
       const attachmentUrl = await getDownloadURL(response.ref, imgRef);
       updateProfile(newCurrentUser, {
@@ -46,6 +43,9 @@ const Profile = ({refreshUser}) => {
         photoURL: attachmentUrl,
       });
     }
+    await updateProfile(authService.currentUser, {
+      displayName: newDisplayName,
+    });
 
     alert("수정 완료!");
     refreshUser();
@@ -134,12 +134,12 @@ const Profile = ({refreshUser}) => {
               alt="img"
             />
             <div className="profile-name">{globalUser.displayName}</div>
-            <button className="toggle-btn" onClick={toggleEditing}>
-              수정
-            </button>
           </div>
         )}
       </form>
+      <button className="toggle-btn" onClick={toggleEditing}>
+        수정
+      </button>
       <hr width="250px" />
       <div>
         {myPost.map((post) => (

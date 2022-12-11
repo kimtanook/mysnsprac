@@ -33,11 +33,10 @@ function App() {
     });
   }, []);
   const refreshUser = () => {
-    const user = authService.currentUser;
     dispatch(
       userActions.currentUser({
-        displayName: user.displayName,
-        uid: user.uid,
+        displayName: authService.currentUser.displayName,
+        uid: authService.currentUser.uid,
       })
     );
   };
