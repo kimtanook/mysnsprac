@@ -1,0 +1,331 @@
+/* AuthForm  */
+.auth-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.auth-title {
+  font-size: 50px;
+  text-align: center;
+}
+.input-form {
+  font-size: 10px;
+  margin: 5px;
+  padding-left: 10px;
+  height: 30px;
+  width: 200px;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.submit-button {
+  font-size: 15px;
+  height: 30px;
+  width: 200px;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding-bottom: 5px;
+  margin: 5%;
+  color: aliceblue;
+  background-color: rgb(26, 96, 87);
+}
+
+.toggle-button {
+  font-size: 13px;
+  height: 20px;
+  width: 150px;
+  padding-top: 3%;
+  text-align: center;
+  padding-bottom: 5px;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  background-color: rgb(37, 90, 137);
+}
+.social-icon {
+  position: relative;
+  left: 25%;
+  margin: 10px;
+  width: 35px;
+  height: 35px;
+}
+
+/* Navigation */
+.nav-bar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.426);
+  padding: 10px 5px 10px 5px;
+  border-radius: 15px;
+}
+.nav-li {
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  color: inherit; /* 링크의 색상 제거 */
+  font-size: 13px;
+}
+.nav-div {
+  text-align: center;
+  width: 70px;
+  height: 20px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: 1px solid white;
+  margin: 5px;
+}
+.home-logo {
+  width: 30px;
+  height: 30px;
+}
+.auth-logo {
+  width: 30px;
+  height: 30px;
+}
+
+/* Home */
+.home-container {
+  padding-top: 100px;
+}
+.home-title {
+  text-align: center;
+}
+
+/* PostFactory */
+
+.post-submit-container,
+.post-submit-container > div,
+.post-form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-submit-container > form > img {
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.post-input {
+  text-align: center;
+  font-size: 17px;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  width: 80%;
+  height: 40px;
+}
+
+.file-input {
+  width: 60%;
+  cursor: pointer;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(158, 158, 158);
+  transition: 0.5s;
+}
+.file-input:hover {
+  background-color: black;
+}
+
+.submit-btn {
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  margin: 5px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(56, 107, 145);
+  transition: 0.5s;
+}
+.submit-btn:hover {
+  background-color: rgb(6, 37, 61);
+}
+.clear-btn {
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  margin: 5px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(21, 67, 102);
+  transition: 0.5s;
+}
+.clear-btn:hover {
+  background-color: rgb(6, 37, 61);
+}
+.toggle-btn {
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  margin: 20px 0 10px 0;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(16, 44, 123);
+  transition: 0.5s;
+}
+.toggle-btn:hover {
+  background-color: rgb(6, 37, 61);
+}
+/* Post */
+.post-box {
+  background-color: rgba(0, 0, 0, 0.213);
+  border-radius: 20px;
+  padding-top: 20px;
+  margin: 20px 0px 40px 0;
+}
+.post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-container > div {
+  min-width: 200px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+.creator-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  background-color: black;
+  padding: 10px;
+  height: 25px;
+  border-radius: 15px;
+  margin: 0px 20px 0px 20px;
+}
+.post-creator-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.post-creator-name {
+}
+.post-img {
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.post-title {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.288);
+}
+.post-date {
+  margin-top: 10px;
+  font-size: 12px;
+}
+.delete-btn {
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  margin: 2px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(10, 92, 78);
+  transition: 0.5s;
+}
+.edit-btn {
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  margin: 2px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(37, 79, 194);
+  transition: 0.5s;
+}
+
+.edit-text {
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cancel-btn {
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  margin: 2px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(37, 79, 194);
+  transition: 0.5s;
+}
+
+/* Profile */
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-form > div,
+.profile-form > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-display-name {
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  margin: 5px;
+}
+.profile-update {
+  border: 1px solid white;
+  height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  margin: 5px;
+  background-color: rgb(37, 79, 194);
+  color: white;
+}
+
+.profile-img {
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.profile-name {
+  border: 1px solid white;
+  border-radius: 20px;
+  height: 50px;
+  width: 200px;
+  margin: 5px;
+  background-color: black;
+}
+
+.logout-btn {
+  cursor: pointer;
+  width: 100px;
+  color: white;
+  margin: 5px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: rgb(69, 70, 73);
+  transition: 0.5s;
+}
