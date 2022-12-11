@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mysnsprac/static/css/main.9e752b7d.css",
-    "main.js": "/mysnsprac/static/js/main.ed3a4aaa.js",
+    "main.js": "/mysnsprac/static/js/main.5e91e851.js",
     "index.html": "/mysnsprac/index.html",
     "main.9e752b7d.css.map": "/mysnsprac/static/css/main.9e752b7d.css.map",
-    "main.ed3a4aaa.js.map": "/mysnsprac/static/js/main.ed3a4aaa.js.map"
+    "main.5e91e851.js.map": "/mysnsprac/static/js/main.5e91e851.js.map"
   },
   "entrypoints": [
     "static/css/main.9e752b7d.css",
-    "static/js/main.ed3a4aaa.js"
+    "static/js/main.5e91e851.js"
   ]
 }
