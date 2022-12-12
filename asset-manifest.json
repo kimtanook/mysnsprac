@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/mysnsprac/static/css/main.9e752b7d.css",
-    "main.js": "/mysnsprac/static/js/main.5e91e851.js",
+    "main.css": "/mysnsprac/static/css/main.86caadb1.css",
+    "main.js": "/mysnsprac/static/js/main.4e106197.js",
+    "static/media/auth_logo.jpg": "/mysnsprac/static/media/auth_logo.d86ea91f42ead636b627.jpg",
     "index.html": "/mysnsprac/index.html",
-    "main.9e752b7d.css.map": "/mysnsprac/static/css/main.9e752b7d.css.map",
-    "main.5e91e851.js.map": "/mysnsprac/static/js/main.5e91e851.js.map"
+    "main.86caadb1.css.map": "/mysnsprac/static/css/main.86caadb1.css.map",
+    "main.4e106197.js.map": "/mysnsprac/static/js/main.4e106197.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e752b7d.css",
-    "static/js/main.5e91e851.js"
+    "static/css/main.86caadb1.css",
+    "static/js/main.4e106197.js"
   ]
 }
