@@ -83,7 +83,6 @@ const Profile = ({refreshUser}) => {
   return (
     <div className="profile-container">
       <img onClick={logout} className="logout-btn" src={logoutIcon} />
-
       <form className="profile-form" onSubmit={onSubmit}>
         {editing ? (
           <div>
@@ -100,7 +99,7 @@ const Profile = ({refreshUser}) => {
               className="toggle-btn"
               onClick={toggleEditing}
             >
-              취소
+              Cancel
             </button>
             <div>
               <input
@@ -142,12 +141,13 @@ const Profile = ({refreshUser}) => {
               className="toggle-btn"
               onClick={toggleEditing}
             >
-              수정
+              Edit Profile
             </button>
           </div>
         )}
       </form>
       <hr width="250px" />
+      <div className="my-post-list">My Post List</div>
       <div>
         {myPost.map((post) => (
           <Post

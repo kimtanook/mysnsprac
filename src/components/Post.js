@@ -82,7 +82,7 @@ const Post = ({postObj, isOwner}) => {
             {isOwner && (
               <>
                 <button className="edit-btn" onClick={toggleEditing}>
-                  Text Edit
+                  Edit Text
                 </button>
                 <button className="delete-btn" onClick={onDeleteClick}>
                   Delete

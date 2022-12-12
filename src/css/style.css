@@ -259,7 +259,7 @@ body {
   border-radius: 10px;
   padding: 10px;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0 20px 0;
   background-color: rgba(0, 0, 0, 0.288);
 }
 .post-date {
@@ -320,6 +320,15 @@ body {
   justify-content: center;
   align-items: center;
   padding-top: 100px;
+}
+.my-post-list {
+  background-color: rgb(75, 82, 80);
+  height: 30px;
+  width: 200px;
+  text-align: center;
+  margin: 20px;
+  padding: 15px 10px 0 10px;
+  border-radius: 15px;
 }
 .profile-form {
   display: flex;
