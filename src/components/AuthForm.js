@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import {authService} from "../firebase";
+import logo from "../images/logo.png";
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");
@@ -56,7 +57,9 @@ const AuthForm = () => {
 
   return (
     <div className="auth-form-container">
-      <div className="auth-title">SNS</div>
+      <div className="auth-title">
+        <img src={logo} />
+      </div>
       <form className="auth-form" onSubmit={onSubmit}>
         <div>
           <input
@@ -80,7 +83,6 @@ const AuthForm = () => {
             onChange={onChange}
           />
         </div>
-
         <input
           className="submit-button"
           type="submit"

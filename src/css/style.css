@@ -1,8 +1,13 @@
 body {
-  background-color: rgb(27, 33, 31);
+  background-color: rgb(46, 46, 46);
   color: white;
 }
-
+.loading-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* AuthForm  */
 .auth-container {
   position: absolute;
@@ -10,6 +15,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .auth-title {
   font-size: 50px;
   text-align: center;
@@ -25,6 +31,7 @@ body {
 }
 
 .submit-button {
+  cursor: pointer;
   font-size: 15px;
   height: 30px;
   width: 200px;
@@ -34,9 +41,15 @@ body {
   margin: 5%;
   color: aliceblue;
   background-color: rgb(26, 96, 87);
+  transition: 0.5s;
+}
+.submit-button:hover {
+  background-color: black;
+  color: white;
 }
 
 .toggle-button {
+  cursor: pointer;
   font-size: 13px;
   height: 20px;
   width: 150px;
@@ -48,6 +61,11 @@ body {
   margin-left: 15%;
   margin-bottom: 5%;
   background-color: rgb(37, 90, 137);
+  transition: 0.5s;
+}
+.toggle-button:hover {
+  background-color: black;
+  color: white;
 }
 .social-icon {
   position: relative;
@@ -59,34 +77,35 @@ body {
 
 /* Navigation */
 .nav-bar {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  box-shadow: 10px 10px 10px black;
   display: flex;
   position: fixed;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.426);
+  width: 95%;
+  background-color: rgba(255, 255, 255, 0.266);
   padding: 10px 5px 10px 5px;
   border-radius: 15px;
 }
 .nav-li {
+  width: 20px;
   text-decoration: none; /* 링크의 밑줄 제거 */
   color: inherit; /* 링크의 색상 제거 */
   font-size: 13px;
 }
 .nav-div {
   text-align: center;
-  width: 70px;
+  width: 35px;
   height: 20px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
-  border: 1px solid white;
   margin: 5px;
 }
-.home-logo {
-  width: 30px;
+.logo2 {
+  position: absolute;
   height: 30px;
-}
-.auth-logo {
-  width: 30px;
-  height: 30px;
+  right: 30px;
 }
 
 /* Home */
@@ -96,7 +115,9 @@ body {
 .home-title {
   text-align: center;
 }
-
+.home-logo {
+  width: 100px;
+}
 /* PostFactory */
 
 .post-submit-container,
@@ -147,7 +168,8 @@ body {
   transition: 0.5s;
 }
 .submit-btn:hover {
-  background-color: rgb(6, 37, 61);
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 .clear-btn {
   cursor: pointer;
@@ -160,7 +182,8 @@ body {
   transition: 0.5s;
 }
 .clear-btn:hover {
-  background-color: rgb(6, 37, 61);
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 .toggle-btn {
   cursor: pointer;
@@ -173,11 +196,12 @@ body {
   transition: 0.5s;
 }
 .toggle-btn:hover {
-  background-color: rgb(6, 37, 61);
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 /* Post */
 .post-box {
-  background-color: rgba(0, 0, 0, 0.213);
+  background-color: rgba(197, 246, 235, 0.173);
   border-radius: 20px;
   padding-top: 20px;
   margin: 20px 0px 40px 0;
@@ -199,12 +223,19 @@ body {
   margin: 20px;
   padding: 20px;
 }
+.edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .creator-container {
   display: flex;
   flex-direction: row;
   justify-content: left;
   align-items: center;
+  box-shadow: 10px 10px 10px rgb(10, 10, 10);
   background-color: black;
   padding: 10px;
   height: 25px;
@@ -221,6 +252,8 @@ body {
 .post-img {
   border-radius: 20px;
   margin-bottom: 10px;
+  width: 140%;
+  box-shadow: 10px 10px 10px black;
 }
 .post-title {
   border-radius: 10px;
@@ -243,6 +276,10 @@ body {
   background-color: rgb(10, 92, 78);
   transition: 0.5s;
 }
+.delete-btn:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
 .edit-btn {
   cursor: pointer;
   width: 100px;
@@ -252,6 +289,10 @@ body {
   border-radius: 15px;
   background-color: rgb(37, 79, 194);
   transition: 0.5s;
+}
+.edit-btn:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .edit-text {
@@ -300,6 +341,7 @@ body {
   margin: 5px;
 }
 .profile-update {
+  cursor: pointer;
   border: 1px solid white;
   height: 30px;
   text-align: center;
@@ -311,7 +353,7 @@ body {
 
 .profile-img {
   margin: 10px;
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
 .profile-name {
@@ -325,11 +367,11 @@ body {
 
 .logout-btn {
   cursor: pointer;
-  width: 100px;
+  width: 30px;
   color: white;
   margin: 5px;
-  border: 1px solid white;
+  padding: 5px;
   border-radius: 15px;
-  background-color: rgb(69, 70, 73);
+  background-color: rgb(255, 255, 255);
   transition: 0.5s;
 }

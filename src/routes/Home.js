@@ -5,6 +5,7 @@ import {collection, orderBy, query, onSnapshot} from "firebase/firestore";
 import PostFactory from "../components/PostFactory";
 import {useDispatch, useSelector} from "react-redux";
 import {postActions} from "../redux/modules/postsObj";
+import logo from "../images/logo.png";
 
 const Home = () => {
   const globalUser = useSelector((state) => state.userObj.users);
@@ -24,7 +25,9 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div className="home-title"></div>
+      <div className="home-title">
+        <img className="home-logo" src={logo} />
+      </div>
       <PostFactory />
       <div>
         {globalPost.map((post) => (

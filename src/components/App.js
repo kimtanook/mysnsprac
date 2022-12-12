@@ -46,7 +46,7 @@ function App() {
       {init ? (
         <AppRouter refreshUser={refreshUser} isLoggedIn={isLoggedIn} />
       ) : (
-        "initializing..."
+        <div className="loading-msg">로딩 중...</div>
       )}
     </div>
   );

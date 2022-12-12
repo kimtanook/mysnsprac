@@ -4,6 +4,7 @@ import {signOut, updateProfile} from "firebase/auth";
 import {getDownloadURL, ref, uploadString} from "firebase/storage";
 import {useSelector} from "react-redux";
 import Post from "../components/Post";
+import logoutIcon from "../images/logout_icon.jpg";
 
 const Profile = ({refreshUser}) => {
   const globalUser = useSelector((state) => state.userObj.users);
@@ -18,7 +19,6 @@ const Profile = ({refreshUser}) => {
       .then(() => {
         // Sign-out successful.
         localStorage.clear();
-
         console.log("로그아웃 성공");
       })
       .catch((error) => {
@@ -82,9 +82,8 @@ const Profile = ({refreshUser}) => {
 
   return (
     <div className="profile-container">
-      <button className="logout-btn" onClick={logout}>
-        Log Out
-      </button>
+      <img onClick={logout} className="logout-btn" src={logoutIcon} />
+
       <form className="profile-form" onSubmit={onSubmit}>
         {editing ? (
           <div>
@@ -96,7 +95,11 @@ const Profile = ({refreshUser}) => {
               alt="img"
             />
             <div className="profile-name">{globalUser.displayName}</div>
-            <button className="toggle-btn" onClick={toggleEditing}>
+            <button
+              type="button"
+              className="toggle-btn"
+              onClick={toggleEditing}
+            >
               취소
             </button>
             <div>
@@ -134,12 +137,16 @@ const Profile = ({refreshUser}) => {
               alt="img"
             />
             <div className="profile-name">{globalUser.displayName}</div>
+            <button
+              type="button"
+              className="toggle-btn"
+              onClick={toggleEditing}
+            >
+              수정
+            </button>
           </div>
         )}
       </form>
-      <button className="toggle-btn" onClick={toggleEditing}>
-        수정
-      </button>
       <hr width="250px" />
       <div>
         {myPost.map((post) => (

@@ -3,6 +3,7 @@ import {dbService, storageService} from "../firebase.js";
 import {doc, updateDoc, deleteDoc} from "firebase/firestore";
 import {deleteObject, ref} from "firebase/storage";
 import {useState} from "react";
+import nullDisplay from "../images/nullimage.png";
 
 const Post = ({postObj, isOwner}) => {
   const [editing, setEditing] = useState(false);
@@ -35,13 +36,18 @@ const Post = ({postObj, isOwner}) => {
   return (
     <div className="post-box">
       <div className="creator-container">
-        <img className="post-creator-img" src={postObj.photoURL} alt="img" />
-        <div className="post-creator-name">{postObj.displayName}</div>
+        {postObj.photoURL ? (
+          <img className="post-creator-img" src={postObj.photoURL} alt="img" />
+        ) : (
+          <img className="post-creator-img" src={nullDisplay} alt="img" />
+        )}
+
+        <div className="post-creator-name">{postObj.displayName ?? `익명`}</div>
       </div>
       <div className="post-container">
         {editing ? (
           <div>
-            <form className="post-container" onSubmit={onSubmit}>
+            <form className="edit-container" onSubmit={onSubmit}>
               {postObj.attachmentUrl && (
                 <img
                   className="post-img"
@@ -63,20 +69,14 @@ const Post = ({postObj, isOwner}) => {
               </h4>
               <input className="submit-btn" type="submit" value="Update Post" />
             </form>
-            <button className="cancel-btn" onClick={toggleEditing}>
-              취소
+            <button className="edit-btn" onClick={toggleEditing}>
+              Cancel
             </button>
           </div>
         ) : (
           <div>
             {postObj.attachmentUrl && (
-              <img
-                className="post-img"
-                src={postObj.attachmentUrl}
-                width="150px"
-                height="150px"
-                alt="img"
-              />
+              <img className="post-img" src={postObj.attachmentUrl} alt="img" />
             )}
             <div className="post-title">{postObj.text}</div>
             {isOwner && (
