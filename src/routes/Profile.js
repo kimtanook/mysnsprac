@@ -82,7 +82,12 @@ const Profile = ({refreshUser}) => {
 
   return (
     <div className="profile-container">
-      <img onClick={logout} className="logout-btn" src={logoutIcon} />
+      <img
+        onClick={logout}
+        className="logout-btn"
+        src={logoutIcon}
+        alt="logout-icon"
+      />
       <form className="profile-form" onSubmit={onSubmit}>
         {editing ? (
           <div>
