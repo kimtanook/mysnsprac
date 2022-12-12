@@ -5,6 +5,7 @@ import {getDownloadURL, ref, uploadString} from "firebase/storage";
 import {useSelector} from "react-redux";
 import Post from "../components/Post";
 import logoutIcon from "../images/logout_icon.jpg";
+import nullImage from "../images/nullimage.png";
 
 const Profile = ({refreshUser}) => {
   const globalUser = useSelector((state) => state.userObj.users);
@@ -93,12 +94,14 @@ const Profile = ({refreshUser}) => {
           <div>
             <img
               className="profile-img"
-              src={newProfileImg}
+              src={newProfileImg ?? nullImage}
               width="150"
               height="150px"
               alt="img"
             />
-            <div className="profile-name">{globalUser.displayName}</div>
+            <div className="profile-name">
+              {globalUser.displayName ?? `이름없음`}
+            </div>
             <button
               type="button"
               className="toggle-btn"
@@ -121,7 +124,7 @@ const Profile = ({refreshUser}) => {
                 onChange={onChange}
                 type="text"
                 placeholder="수정할 닉네임"
-                value={newDisplayName}
+                value={newDisplayName ?? `이름없음`}
                 required
               />
             </div>
@@ -135,12 +138,15 @@ const Profile = ({refreshUser}) => {
           <div>
             <img
               className="profile-img"
-              src={authService.currentUser.photoURL}
+              src={authService.currentUser.photoURL ?? nullImage}
               width="150"
               height="150px"
               alt="img"
             />
-            <div className="profile-name">{globalUser.displayName}</div>
+
+            <div className="profile-name">
+              {globalUser.displayName ?? `이름없음`}
+            </div>
             <button
               type="button"
               className="toggle-btn"

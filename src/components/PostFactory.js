@@ -85,7 +85,13 @@ const PostFactory = () => {
             </div>
             <div>
               {attachment && (
-                <img src={attachment} width="100px" height="100px" alt="img" />
+                <img
+                  className="preview-img"
+                  src={attachment}
+                  width="100px"
+                  height="100px"
+                  alt="img"
+                />
               )}
             </div>
             <div>

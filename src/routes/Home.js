@@ -13,8 +13,11 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const q = query(collection(dbService, "post"), orderBy("createAt", "desc"));
-    onSnapshot(q, (querySnapshot) => {
+    const qPost = query(
+      collection(dbService, "post"),
+      orderBy("createAt", "desc")
+    );
+    onSnapshot(qPost, (querySnapshot) => {
       const postsArr = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),

@@ -1,21 +1,24 @@
-import { configureStore } from '@reduxjs/toolkit';
-import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
-import thunk from 'redux-thunk';
+import {configureStore} from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
+import {persistReducer} from "redux-persist";
+import thunk from "redux-thunk";
 
-import userObj from '../modules/userObj';
-import postsObj from '../modules/postsObj';
+import userObj from "../modules/userObj";
+import postsObj from "../modules/postsObj";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, postsObj);
+const postPersistedReducer = persistReducer(persistConfig, postsObj);
 
 const store = configureStore({
-  reducer: { userObj, postsObj: persistedReducer },
-  devTools: process.env.NODE_ENV !== 'production',
+  reducer: {
+    userObj,
+    postsObj: postPersistedReducer,
+  },
+  devTools: process.env.NODE_ENV !== "production",
   middleware: [thunk],
 });
 

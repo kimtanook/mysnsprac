@@ -1,6 +1,29 @@
 body {
-  background-color: rgb(46, 46, 46);
   color: white;
+  margin: 0px;
+  padding: 30px;
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab,
+    #23d5bb
+  );
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .loading-msg {
   position: absolute;
@@ -10,10 +33,12 @@ body {
 }
 /* AuthForm  */
 .auth-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 100px;
 }
 
 .auth-title {
@@ -77,6 +102,7 @@ body {
 
 /* Navigation */
 .nav-bar {
+  max-width: 500px;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
@@ -143,7 +169,9 @@ body {
   width: 80%;
   height: 40px;
 }
-
+.preview-img {
+  border-radius: 15px;
+}
 .file-input {
   width: 60%;
   cursor: pointer;
@@ -204,7 +232,8 @@ body {
   background-color: rgba(255, 255, 255, 0.173);
   border-radius: 20px;
   padding-top: 20px;
-  margin: 20px 0px 40px 0;
+  margin: auto auto 40px auto;
+  max-width: 500px;
 }
 .post-container {
   display: flex;
@@ -233,18 +262,25 @@ body {
 .creator-container {
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 10px 10px 10px rgb(10, 10, 10);
-  background-color: black;
+  background-color: rgba(87, 99, 95, 0.15);
   padding: 10px;
   height: 25px;
   border-radius: 15px;
   margin: 0px 20px 0px 20px;
 }
+.creator-img-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 .post-creator-img {
-  width: 50px;
-  height: 50px;
+  background-color: white;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -252,18 +288,17 @@ body {
 .post-img {
   border-radius: 20px;
   margin-bottom: 10px;
-  width: 140%;
+  max-width: 140%;
   box-shadow: 10px 10px 10px black;
 }
 .post-title {
   border-radius: 10px;
   padding: 10px;
   font-size: 20px;
-  margin: 20px 0 20px 0;
+  margin-top: 20px;
   background-color: rgba(0, 0, 0, 0.288);
 }
 .post-date {
-  margin-top: 10px;
   font-size: 12px;
 }
 .delete-btn {
@@ -310,6 +345,86 @@ body {
   border-radius: 15px;
   background-color: rgb(37, 79, 194);
   transition: 0.5s;
+}
+
+.comment-wrap {
+  background-color: rgba(168, 243, 243, 0.368);
+  border-radius: 15px;
+}
+.comment-wrap > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-list-wrap {
+  overflow: auto;
+  border-radius: 10px;
+  max-height: 300px;
+}
+.comment-list-container {
+  width: 200px;
+  margin: 10px;
+  border: 1px white solid;
+  border-radius: 10px;
+  padding: 5px;
+}
+.comment-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.368);
+}
+.comment-name {
+  background-color: rgba(0, 0, 0, 0.738);
+  height: 20px;
+  padding: 2px 10px 1px 10px;
+  border-radius: 15px;
+}
+.comment-text {
+  height: 20px;
+  padding: 3px 5px 1px 5px;
+  border-radius: 15px;
+}
+.comment-date {
+  font-size: 10px;
+  color: rgb(105, 105, 105);
+}
+.comment-delete-btn {
+  position: relative;
+  left: 70%;
+  border: white 1px solid;
+  border-radius: 10px;
+  color: white;
+  background-color: #3341fb;
+  transition: 0.5s;
+}
+.comment-delete-btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.comment-input {
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.comment-submit-btn {
+  color: white;
+  border: white 1px solid;
+  border-radius: 10px;
+  width: 50px;
+  background-color: #1e5692;
+  transition: 0.5s;
+}
+.comment-submit-btn:hover {
+  color: black;
+  background-color: white;
 }
 
 /* Profile */
