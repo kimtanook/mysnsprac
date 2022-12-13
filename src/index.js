@@ -1,20 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './components/App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./components/App";
 
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistStore } from 'redux-persist';
+import {PersistGate} from "redux-persist/integration/react";
+import {persistStore} from "redux-persist";
 
-import store from './redux/config/configStore';
-import { Provider } from 'react-redux';
+import store from "./redux/config/configStore";
+import {Provider} from "react-redux";
 
 let persistor = persistStore(store);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-window.addEventListener('DOMContentLoaded', function () {
+const root = ReactDOM.createRoot(document.getElementById("root"));
+window.addEventListener("DOMContentLoaded", function () {
   const hash = window.location.hash;
-  if (hash !== '') {
-    window.location.replace('');
+  if (hash !== "") {
+    window.location.replace("");
   }
 });
 root.render(

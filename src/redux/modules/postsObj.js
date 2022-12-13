@@ -5,6 +5,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
   posts: [],
 };
+
 // Reducer
 const postsObj = createSlice({
   name: "counter",

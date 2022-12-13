@@ -1,14 +1,14 @@
 // src/redux/modules/counter.js
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from "@reduxjs/toolkit";
 
 // Initial State
 const initialState = {
-  users: '',
+  users: "",
 };
-// Reducer
 
+// Reducer
 const userObj = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState,
   reducers: {
     currentUser: (state, action) => {
@@ -16,6 +16,7 @@ const userObj = createSlice({
     },
   },
 });
+
 // export default reducer
 export const userActions = userObj.actions;
 export default userObj.reducer;
