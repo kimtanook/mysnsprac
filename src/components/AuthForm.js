@@ -58,7 +58,7 @@ const AuthForm = () => {
   return (
     <div className="auth-form-container">
       <div className="auth-title">
-        <img src={logo} />
+        <img src={logo} alt="logo" />
       </div>
       <form className="auth-form" onSubmit={onSubmit}>
         <div>

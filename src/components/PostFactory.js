@@ -3,9 +3,11 @@ import {dbService, storageService, authService} from "../firebase";
 import {ref, getDownloadURL, uploadString} from "firebase/storage";
 import {addDoc, collection} from "firebase/firestore";
 import {v4 as uuidv4} from "uuid";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {getPost} from "../redux/modules/postsObj";
 
 const PostFactory = () => {
+  const dispatch = useDispatch();
   const globalUser = useSelector((state) => state.userObj.users);
 
   const [post, setPost] = useState("");
@@ -33,6 +35,7 @@ const PostFactory = () => {
       });
       setPost("");
       onClearAttachment();
+      dispatch(getPost());
     } catch (error) {
       console.log(error);
     }

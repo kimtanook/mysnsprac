@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import AppRouter from "./Router";
 import {useEffect, useState} from "react";
 import {authService} from "../firebase";

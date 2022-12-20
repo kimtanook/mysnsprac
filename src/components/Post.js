@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from "react";
 import {authService, dbService, storageService} from "../firebase.js";
 import {
@@ -108,79 +109,130 @@ const Post = ({postObj, isOwner}) => {
     }
   };
   return (
-    <div className="post-box">
-      <div className="creator-container">
-        <div className="creator-img-name">
-          {postObj.photoURL ? (
-            <img
-              className="post-creator-img"
-              src={postObj.photoURL}
-              alt="img"
-            />
-          ) : (
-            <img className="post-creator-img" src={nullDisplay} alt="img" />
-          )}
-          <div className="post-creator-name">
-            {postObj.displayName ?? `익명`}
+    <div>
+      <div className="post-box">
+        <div className="creator-container">
+          <div className="creator-img-name">
+            {postObj.photoURL ? (
+              <img
+                className="post-creator-img"
+                src={postObj.photoURL}
+                alt="img"
+              />
+            ) : (
+              <img className="post-creator-img" src={nullDisplay} alt="img" />
+            )}
+            <div className="post-creator-name">
+              {postObj.displayName ?? `익명`}
+            </div>
+          </div>
+          <div className="post-date">
+            {new Date(postObj.createAt + 9 * 60 * 60 * 1000).toLocaleString(
+              "ko-KR",
+              {
+                timeZone: "UTC",
+              }
+            )}
           </div>
         </div>
-        <div className="post-date">
-          {new Date(postObj.createAt + 9 * 60 * 60 * 1000).toLocaleString(
-            "ko-KR",
-            {
-              timeZone: "UTC",
-            }
-          )}
-        </div>
-      </div>
-      <div className="post-container">
-        {editing ? (
-          <div>
-            <form className="edit-container" onSubmit={onSubmit}>
-              {postObj.attachmentUrl && (
-                <img
-                  className="post-img"
-                  src={postObj.attachmentUrl}
-                  alt="img"
-                />
-              )}
-              <h4>
-                <input
-                  className="edit-text"
-                  type="text"
-                  placeholder="Edit your post"
-                  value={newPost}
-                  required
-                  onChange={onChange}
-                />
-              </h4>
-              <input className="submit-btn" type="submit" value="Update Post" />
-            </form>
-            <button className="edit-btn" onClick={toggleEditing}>
-              Cancel
-            </button>
-          </div>
-        ) : (
+        <div className="post-container">
           <div>
             {postObj.attachmentUrl && (
               <img className="post-img" src={postObj.attachmentUrl} alt="img" />
             )}
-            <div className="post-title">{postObj.text}</div>
-            {isOwner && (
-              <>
-                <button className="edit-btn" onClick={toggleEditing}>
-                  Edit Text
-                </button>
-                <button className="delete-btn" onClick={onDeleteClick}>
-                  Delete
-                </button>
-              </>
-            )}
           </div>
-        )}
-        {commentWrite ? (
-          <div className="comment-wrap">
-            <form onSubmit={onCommentSubmit}>
+          {editing ? (
+            <div>
+              <form className="edit-container" onSubmit={onSubmit}>
+                <div>
+                  <input
+                    className="edit-text"
+                    type="text"
+                    placeholder="Edit your post"
+                    value={newPost}
+                    required
+                    onChange={onChange}
+                  />
+                </div>
+                <input
+                  className="submit-btn"
+                  type="submit"
+                  value="Update Post"
+                />
+              </form>
+              <button className="edit-btn" onClick={toggleEditing}>
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <div>
+              <div className="post-title">{postObj.text}</div>
+              {isOwner && (
+                <>
+                  <button className="edit-btn" onClick={toggleEditing}>
+                    Edit Text
+                  </button>
+                  <button className="delete-btn" onClick={onDeleteClick}>
+                    Delete
+                  </button>
+                </>
+              )}
+            </div>
+          )}
+          {commentWrite ? (
+            <div className="comment-wrap">
+              <form onSubmit={onCommentSubmit}>
+                <button
+                  className="toggle-btn"
+                  type="button"
+                  onClick={() => {
+                    setCommentWrite(!commentWrite);
+                  }}
+                >
+                  Cancel
+                </button>
+                <input
+                  className="comment-input"
+                  value={comment}
+                  onChange={onCommentChange}
+                  type="text"
+                  placeholder="댓글을 달아보세요!"
+                  maxLength={120}
+                  required
+                />
+                <button className="comment-submit-btn">Ok</button>
+              </form>
+              <div className="comment-list-wrap">
+                {commentStore.map((comment) => (
+                  <div className="comment-list-container" key={comment.id}>
+                    <div className="comment-list">
+                      <div className="comment-name">
+                        {comment.displayName ?? "익명"}
+                      </div>
+                      <div className="comment-text">{comment.text}</div>
+                    </div>
+                    <div className="comment-date">
+                      {new Date(
+                        comment.createAt + 9 * 60 * 60 * 1000
+                      ).toLocaleString("ko-KR", {
+                        timeZone: "UTC",
+                      })}
+                    </div>
+                    {globalUser.uid === comment.creatorId ? (
+                      <button
+                        className="comment-delete-btn"
+                        id={comment.id}
+                        onClick={onCommentDelete}
+                      >
+                        Delete
+                      </button>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="comment-wrap">
               <button
                 className="toggle-btn"
                 type="button"
@@ -188,59 +240,11 @@ const Post = ({postObj, isOwner}) => {
                   setCommentWrite(!commentWrite);
                 }}
               >
-                Cancel
+                Go to Comments
               </button>
-              <input
-                className="comment-input"
-                value={comment}
-                onChange={onCommentChange}
-                type="text"
-                placeholder="댓글을 달아보세요!"
-                maxLength={120}
-                required
-              />
-              <button className="comment-submit-btn">Ok</button>
-            </form>
-            <div className="comment-list-wrap">
-              {commentStore.map((comment) => (
-                <div className="comment-list-container" key={comment.id}>
-                  <div className="comment-list">
-                    <div className="comment-name">{comment.displayName}</div>
-                    <div className="comment-text">{comment.text}</div>
-                  </div>
-                  <div className="comment-date">
-                    {new Date(
-                      comment.createAt + 9 * 60 * 60 * 1000
-                    ).toLocaleString("ko-KR", {
-                      timeZone: "UTC",
-                    })}
-                  </div>
-                  {globalUser.uid === comment.creatorId ? (
-                    <button
-                      className="comment-delete-btn"
-                      id={comment.id}
-                      onClick={onCommentDelete}
-                    >
-                      Delete
-                    </button>
-                  ) : null}
-                </div>
-              ))}
             </div>
-          </div>
-        ) : (
-          <div className="comment-wrap">
-            <button
-              className="toggle-btn"
-              type="button"
-              onClick={() => {
-                setCommentWrite(!commentWrite);
-              }}
-            >
-              Go to Comments
-            </button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

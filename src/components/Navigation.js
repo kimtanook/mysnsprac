@@ -9,15 +9,15 @@ const Navigation = () => {
     <nav className="nav-bar">
       <div className="nav-div">
         <Link to="/">
-          <img className="nav-li" src={homeIcon} />
+          <img className="nav-li" src={homeIcon} alt="home-icon" />
         </Link>
       </div>
       <div className="nav-div">
         <Link to="/profile">
-          <img className="nav-li" src={authIcon} />
+          <img className="nav-li" src={authIcon} alt="auth-icon" />
         </Link>
       </div>
-      <img className="logo2" src={logo2} />
+      <img className="logo2" src={logo2} alt="logo2" />
     </nav>
   );
 };
