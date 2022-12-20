@@ -25,7 +25,7 @@ export const getPost = createAsyncThunk(
       // payload 부분 없이 return만 해도 상관없음
       return (payload = thunkAPI.fulfillWithValue(postsArr));
     } catch (error) {
-      //thunkAPI 없이 error를 보내도 되지만, 그렇게 하면 에러메세지 뒤에 에러메세지가 계속 붙는다.
+      //thunkAPI 없이 error를 보내도 되지만, 그렇게 하면 에러메세지 뒤에 또 다른 에러메세지가 계속 붙는다.
       return thunkAPI.rejectWithValue(error);
     }
   }
