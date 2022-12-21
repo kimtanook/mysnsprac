@@ -3,11 +3,13 @@ import {dbService, storageService, authService} from "../firebase";
 import {ref, getDownloadURL, uploadString} from "firebase/storage";
 import {addDoc, collection} from "firebase/firestore";
 import {v4 as uuidv4} from "uuid";
-import {useDispatch, useSelector} from "react-redux";
-import {getPost} from "../redux/modules/postsObj";
+import {useSelector} from "react-redux";
+import posting from "../images/posting-icon.png";
+import cancel from "../images/cancel-icon.png";
+import ok from "../images/ok-icon.png";
+import clear from "../images/clear-icon.png";
 
 const PostFactory = () => {
-  const dispatch = useDispatch();
   const globalUser = useSelector((state) => state.userObj.users);
 
   const [post, setPost] = useState("");
@@ -35,7 +37,6 @@ const PostFactory = () => {
       });
       setPost("");
       onClearAttachment();
-      dispatch(getPost());
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +71,11 @@ const PostFactory = () => {
   return (
     <div className="post-submit-container">
       <button className="toggle-btn" onClick={toggleEditing}>
-        {toggle ? `Cancel` : `Go To Posting`}
+        {toggle ? (
+          <img className="cancel-icon" src={cancel} alt="cancel-icon" />
+        ) : (
+          <img className="posting-icon" src={posting} alt="posting-icon" />
+        )}
       </button>
       {toggle ? (
         <div className="post-wrap">
@@ -107,12 +112,14 @@ const PostFactory = () => {
               />
             </div>
             <div>
-              <input className="submit-btn" type="submit" value="OK" />
+              <button className="submit-btn" type="submit">
+                <img className="ok-icon" src={ok} alt="ok-icon" />
+              </button>
             </div>
           </form>
           <div>
             <button className="clear-btn" onClick={onClearAttachment}>
-              Clear
+              <img className="clear-icon" src={clear} alt="clear-icon" />
             </button>
           </div>
         </div>

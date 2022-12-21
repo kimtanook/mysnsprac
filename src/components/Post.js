@@ -15,6 +15,10 @@ import {deleteObject, ref} from "firebase/storage";
 import {useState} from "react";
 import nullDisplay from "../images/nullimage.png";
 import {useSelector} from "react-redux";
+import edit from "../images/edit-icon.png";
+import cancel from "../images/cancel-icon.png";
+import ok from "../images/ok-icon.png";
+import deleteIcon from "../images/delete-icon.png";
 
 const Post = ({postObj, isOwner}) => {
   // post 수정관련
@@ -154,15 +158,21 @@ const Post = ({postObj, isOwner}) => {
                     onChange={onChange}
                   />
                 </div>
-                <input
+                <button
                   className="submit-btn"
                   type="submit"
                   value="Update Post"
-                />
+                >
+                  <img src={ok} className="ok-icon" alt="ok-icon" />
+                </button>
+                <button
+                  className="edit-btn"
+                  type="button"
+                  onClick={toggleEditing}
+                >
+                  <img className="cancel-icon" src={cancel} alt="cancel" />
+                </button>
               </form>
-              <button className="edit-btn" onClick={toggleEditing}>
-                Cancel
-              </button>
             </div>
           ) : (
             <div>
@@ -170,10 +180,14 @@ const Post = ({postObj, isOwner}) => {
               {isOwner && (
                 <>
                   <button className="edit-btn" onClick={toggleEditing}>
-                    Edit Text
+                    <img className="cancel-icon" src={edit} alt="cancel" />
                   </button>
                   <button className="delete-btn" onClick={onDeleteClick}>
-                    Delete
+                    <img
+                      className="cancel-icon"
+                      src={deleteIcon}
+                      alt="cancel"
+                    />
                   </button>
                 </>
               )}
@@ -240,7 +254,7 @@ const Post = ({postObj, isOwner}) => {
                   setCommentWrite(!commentWrite);
                 }}
               >
-                Go to Comments
+                Go to Comments({commentStore.length}개)
               </button>
             </div>
           )}
