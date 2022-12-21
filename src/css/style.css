@@ -124,9 +124,13 @@ body {
   text-align: center;
   width: 35px;
   height: 20px;
-  background-color: rgb(255, 255, 255);
+  background: none;
   border-radius: 10px;
   margin: 5px;
+  transition: 0.5s;
+}
+.nav-div:hover {
+  background-color: white;
 }
 .logo2 {
   position: absolute;
@@ -145,6 +149,7 @@ body {
   width: 100px;
 }
 /* PostFactory */
+
 .loading-mark {
   display: flex;
   flex-direction: column;
@@ -194,45 +199,51 @@ body {
 
 .submit-btn {
   cursor: pointer;
-  width: 100px;
-  color: white;
   margin: 5px;
-  border: 1px solid white;
-  border-radius: 15px;
-  background-color: rgb(56, 107, 145);
+  border: none;
+  border-radius: 10px;
+  background: none;
   transition: 0.5s;
 }
 .submit-btn:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
+  background-color: white;
 }
 .clear-btn {
   cursor: pointer;
-  width: 100px;
-  color: white;
   margin: 5px;
-  border: 1px solid white;
-  border-radius: 15px;
-  background-color: rgb(21, 67, 102);
+  border: none;
+  border-radius: 10px;
+  background: none;
   transition: 0.5s;
 }
 .clear-btn:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
+  background-color: white;
+}
+.posting-icon {
+  height: 50px;
+  width: 50px;
+}
+.cancel-icon,
+.ok-icon,
+.clear-icon,
+.edit-icon,
+.delete-icon,
+.comment-icon {
+  height: 30px;
+  right: 30px;
 }
 .toggle-btn {
   cursor: pointer;
-  width: 100px;
+  text-align: center;
   color: white;
   margin: 20px 0 10px 0;
-  border: 1px solid white;
-  border-radius: 15px;
-  background-color: rgb(16, 44, 123);
+  border-radius: 10px;
+  border: none;
+  background: none;
   transition: 0.5s;
 }
 .toggle-btn:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
+  background-color: white;
 }
 /* Post */
 .post-box {
@@ -294,7 +305,6 @@ body {
 
 .post-img {
   border-radius: 20px;
-  /* margin-bottom: 10px; */
   max-width: 140%;
   box-shadow: 10px 10px 10px black;
 }
@@ -310,31 +320,27 @@ body {
 }
 .delete-btn {
   cursor: pointer;
-  width: 100px;
   color: white;
   margin: 2px;
-  border: 1px solid white;
-  border-radius: 15px;
-  background-color: rgb(10, 92, 78);
+  border: none;
+  border-radius: 10px;
+  background: none;
   transition: 0.5s;
 }
 .delete-btn:hover {
   background-color: rgb(255, 255, 255);
-  color: black;
 }
 .edit-btn {
   cursor: pointer;
-  width: 100px;
   color: white;
   margin: 2px;
-  border: 1px solid white;
-  border-radius: 15px;
-  background-color: rgb(37, 79, 194);
+  border: none;
+  border-radius: 10px;
+  background: none;
   transition: 0.5s;
 }
 .edit-btn:hover {
   background-color: rgb(255, 255, 255);
-  color: black;
 }
 
 .edit-text {
@@ -394,9 +400,11 @@ body {
   border-radius: 15px;
 }
 .comment-text {
-  height: 20px;
+  text-align: center;
+  width: 100px;
   padding: 3px 5px 1px 5px;
   border-radius: 15px;
+  overflow-wrap: break-word;
 }
 .comment-date {
   font-size: 10px;
@@ -445,12 +453,13 @@ body {
   padding-top: 100px;
 }
 .my-post-list {
-  background-color: rgb(75, 82, 80);
-  height: 30px;
-  width: 200px;
+  background-color: rgb(253, 253, 253);
+  color: black;
+  height: 20px;
+  width: 400px;
   text-align: center;
   margin: 20px;
-  padding: 15px 10px 0 10px;
+  padding: 5px;
   border-radius: 15px;
 }
 .profile-form {
@@ -508,6 +517,9 @@ body {
   margin: 5px;
   padding: 5px;
   border-radius: 15px;
-  background-color: rgb(255, 255, 255);
+  background: none;
   transition: 0.5s;
+}
+.logout-btn:hover {
+  background-color: white;
 }
