@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/mysnsprac/static/css/main.c68eea20.css",
-    "main.js": "/mysnsprac/static/js/main.f8386514.js",
+    "main.css": "/mysnsprac/static/css/main.916fecd2.css",
+    "main.js": "/mysnsprac/static/js/main.eb8806db.js",
+    "static/media/ok-icon.png": "/mysnsprac/static/media/ok-icon.2fe059a3215dc5769b61.png",
+    "static/media/clear-icon.png": "/mysnsprac/static/media/clear-icon.5e2eb89094a22f898b3d.png",
     "static/media/logo.png": "/mysnsprac/static/media/logo.83e9831b0666ea7e35af.png",
     "static/media/nullimage.png": "/mysnsprac/static/media/nullimage.82064cb33613a4135de3.png",
+    "static/media/edit-icon.png": "/mysnsprac/static/media/edit-icon.258dfbbe1c691462ffde.png",
     "static/media/logout_icon.jpg": "/mysnsprac/static/media/logout_icon.d039226b823909979894.jpg",
     "static/media/auth_logo.jpg": "/mysnsprac/static/media/auth_logo.d86ea91f42ead636b627.jpg",
     "static/media/logo2.png": "/mysnsprac/static/media/logo2.57566f04251c787e1894.png",
     "index.html": "/mysnsprac/index.html",
-    "main.c68eea20.css.map": "/mysnsprac/static/css/main.c68eea20.css.map",
-    "main.f8386514.js.map": "/mysnsprac/static/js/main.f8386514.js.map"
+    "main.916fecd2.css.map": "/mysnsprac/static/css/main.916fecd2.css.map",
+    "main.eb8806db.js.map": "/mysnsprac/static/js/main.eb8806db.js.map"
   },
   "entrypoints": [
-    "static/css/main.c68eea20.css",
-    "static/js/main.f8386514.js"
+    "static/css/main.916fecd2.css",
+    "static/js/main.eb8806db.js"
   ]
 }
